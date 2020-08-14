@@ -139,7 +139,7 @@ button:hover{
 /*Styles for 500px screen*/
 @media(max-width:500px){
     
-/*Header styles go here*/
+    /*Header styles go here*/
 
     nav{
         display: flex;
@@ -150,7 +150,7 @@ button:hover{
         font-size:1.5rem;
     }
 
-/*Title section styles*/
+    /*Title section styles*/
 
     .title-container div{
         height: 40vh;
@@ -163,7 +163,7 @@ button:hover{
         font-weight: bold;
     }
 
-/*Artist Selection style*/
+    /*Artist Selection style*/
 
     .artists-container{
         display: flex;
@@ -189,5 +189,4 @@ button:hover{
         font-size: .6rem;
         text-align: center;
     }
-
 }
