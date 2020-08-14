@@ -263,10 +263,15 @@ console.log(get20s(artists));
  * 
  * Note that sucessfully invoking this function multiple times without refreshing your browser will continuously remove artists from the array until there are none left. If you refresh your browser, the data will reset.  
 */
-function removeArtist(/*code here*/) {
-    /* code here */
+
+const cloneArtists = [...artists] 
+//cloned array in order to complete later tasks without having mutable issues, function still works if you console.log artists array.
+
+function removeArtist(array, index){
+    array.splice(index, 1);
+    return array.length;
   }
-  
+  console.log(removeArtist(cloneArtists, 0));
  
 
 /**
@@ -282,11 +287,14 @@ bio: Add 1-2 sentences (or use lorem ipsum)
 
 At the end, this function should return the new array with information added"*/
 
-function addArtist(/* Code here */){
+const cloneArtists2 = [...artists]
+//cloned array in order to complete later tasks without having mutable issues, function still works if you console.log artists array.
 
-    /* Code here */
-
+function addArtist(array, id, name, years, genre, nationality, bio){
+  array.push({id, name, years, genre, nationality, bio});
+  return array
   }
+  console.log(addArtist(cloneArtists2, 20, "Sam Lalli", "1999 - August 14, 2020", "American", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"));
 
 /* Task 7: Create a function called lotsOfArt() that takes one argument: 
 
@@ -296,11 +304,16 @@ and returns an array with names of artists who painted more than 100 paintings.
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ..."Albrecht Dürer"]*/
 
-function lotsOfArt(/* Code here */){
-
-  /* Code here */
-
+function lotsOfArt(array){
+  const moreThan100Paintings = []
+  for(i = 0; i < array.length; i++){
+    if(array[i] >= "100"){
+      moreThan100Paintings.push(array[i].name);
+    }
+  }
+  return moreThan100Paintings;
 }
+console.log(lotsOfArt(artists));
 
 
 
