@@ -230,19 +230,27 @@ console.log(changeName(artists, 8, "Vinvent Van Gogh"));
  * it will return `The artist at index 0 is Amedeo Modigliani`.
 */
 function getArtistByIndex(array, index) {
-    /* code here */
+    let findArtist = array[index]
+    return `The artist at index ${findArtist.id} is ${findArtist.name}`
   }
+  console.log(getArtistByIndex(artists, 0));
   
   /**
 
 
 /* Task 4: Create a function called get20s() that takes data as an argument and returns an array with names of artists who were born in and died in 20th century (1900-2000) example born in 1901 and died in 1959 - included / born in 1889 and died in 1925 not included - should return ["Salvador Dali", "Frida Kahlo"]*/
 
-function get20s(/* Code here */){
-
-  /* Code here */
-
+function get20s(array){
+  const artist20 = [];
+  for(i = 0; i < array.length; i++){
+    if(array[i].years >= "1900" && array[i].years <= "2000"){
+      artist20.push(array[i].name);
+    }
+  }
+  return artist20
 }
+
+console.log(get20s(artists));
 
 
 /* Task 5: Create a function called `removeArtist` that takes two arguments:
