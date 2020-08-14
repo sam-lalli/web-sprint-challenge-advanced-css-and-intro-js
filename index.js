@@ -243,7 +243,7 @@ function getArtistByIndex(array, index) {
 function get20s(array){
   const artist20 = [];
   for(i = 0; i < array.length; i++){
-    if(array[i].years >= "1900" && array[i].years <= "2000"){
+    if(array[i].years >= "1900" && array[i].years <= "2000"){ //any artist born the year 1900 or greater, and died less than or equal to the year 2000
       artist20.push(array[i].name);
     }
   }
@@ -268,7 +268,7 @@ const cloneArtists = [...artists]
 //cloned array in order to complete later tasks without having mutable issues, function still works if you console.log artists array.
 
 function removeArtist(array, index){
-    array.splice(index, 1);
+    array.splice(index, 1); //splice used to remove specific index, second number is how many items you want to remove
     return array.length;
   }
   console.log(removeArtist(cloneArtists, 0));
@@ -287,14 +287,11 @@ bio: Add 1-2 sentences (or use lorem ipsum)
 
 At the end, this function should return the new array with information added"*/
 
-const cloneArtists2 = [...artists]
-//cloned array in order to complete later tasks without having mutable issues, function still works if you console.log artists array.
-
 function addArtist(array, id, name, years, genre, nationality, bio){
   array.push({id, name, years, genre, nationality, bio});
   return array
   }
-  console.log(addArtist(cloneArtists2, 20, "Sam Lalli", "1999 - August 14, 2020", "American", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"));
+  console.log(addArtist(artists, 20, "Sam Lalli", "1999 - August 14, 2020", "American", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"));
 
 /* Task 7: Create a function called lotsOfArt() that takes one argument: 
 
@@ -307,7 +304,7 @@ For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte
 function lotsOfArt(array){
   const moreThan100Paintings = []
   for(i = 0; i < array.length; i++){
-    if(array[i] >= "100"){
+    if(array[i].paintings >= "100"){
       moreThan100Paintings.push(array[i].name);
     }
   }
@@ -349,11 +346,23 @@ function getHTML(/* Code here */){
 
 /* STRETCH 2: Create a function called `randomize` that takes a data array as an argument and returns a the same array in a randomized order. */
 
-function randomize(/* Code here */){
+const stretchClone = [...artists]
+//cloned array just for strech goal, didn't want it to manipulate the arrays in the tasks
 
-    /* Code here */
+function randomize(array){
+let numberOfItems = array.length //how many items are in the list
+let placeHolder //need place holder varible (learned the hard way)
+while( numberOfItems > 0){ //while there are still items to randomize
+randomIndex = Math.floor(Math.random() * numberOfItems); //need a math randomizer for the index
+numberOfItems-- // have the number decend so loop will eventually end, randomizing each item in array
+placeHolder = array[numberOfItems]; // replacing each variable each time through the loop to randomize array
+array[numberOfItems] = array[randomIndex];
+array[randomIndex] = placeHolder
+}
+return array; //return randomized array
+}
 
-  }
+console.log(randomize(stretchClone));
 
 
  /* STRETCH 3: Use advanced array methods (.map, .reduce, .filer) to refactor your MVP code (create an array of all artists born in the 1900s with .filter, for example) */
