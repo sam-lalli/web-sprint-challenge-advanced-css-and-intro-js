@@ -156,6 +156,10 @@ button:hover{
         height: 40vh;
         margin-bottom: 1%;
         background-size: cover;
+        width: 100%;
+    }
+    .title-container hr{
+        width:100%;
     }
 
     .title-container div h1{
